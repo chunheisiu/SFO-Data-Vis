@@ -1,9 +1,5 @@
-# CS 360 Homework
+# USF CS 360: Data Visualization
+Final Project: SFO Air Traffic Landings Statistics
 
-The GitHub Pages website associated with your homework repository will be available at:
-
-```
-https://usf-cs360-2017.github.io/homework#-username
-```
-
-Replace `#` with the homework number and `username` with your **Github** username. This is the link you should submit in Canvas.
+###### Team Members:
+* Charles Siu ([@chunheisiu](https://github.com/chunheisiu))
