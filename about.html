@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CS 360 Final Project - SFO Air Traffic Landings Statistics</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<nav>
+			<h2>CS 360 Final Project - SFO Air Traffic Landings Statistics ✈️</h2>
+			<p class="text-muted">@chunheisiu</p>
+			<ul class="nav nav-tabs">
+				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Home</a></li>
+				<li><a href="prototype.html"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>&nbsp;&nbsp;Prototypes</a></li>
+				<li class="active"><a href="about.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;About</a></li>
+			</ul>
+		</nav>
+		<div id="blurb">
+			<div class="section">
+				<h3>About the Author</h3>
+				<div class="subsection">
+					<div class="row" id="author">
+						<div class="col-sm-10">
+							<h5>Charles Chun Hei Siu</h5>
+							<p>
+								Charles is a student at the University of San Francisco, majoring in data science and minoring in design. As a keen person in the field of both photography and computer science, he always enjoys engaging in various activities, taking challenges, and meeting new people. His organization and communicational skills also allow him to collaborate with other people in the group to achieve goals and objectives. He seldom hesitates to share the knowledge of his own with people in need, or with the public through volunteering services.
+							</p>
+							<ul id="links">
+								<li><a href="mailto:csiu3@dons.usfca.edu">Email</a></li>
+								<li><a href="http://chunheisiu.com" target="_blank">Personal Website</a></li>
+								<li><a href="https://facebook.com/chunheisiu" target="_blank">Facebook</a></li>
+								<li><a href="https://twitter.com/chunheisiu" target="_blank">Twitter</a></li>
+								<li><a href="https://www.behance.net/chunheisiu" target="_blank">Behance</a></li>
+								<li><a href="https://www.linkedin.com/in/chunheisiu/" target="_blank">LinkedIn</a></li>
+								<li><a href="https://github.com/chunheisiu" target="_blank">GitHub</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-2">
+							<img src="img/avatar.svg" class="img-circle" id="avatar">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<h3>About the Dataset</h3>
+				<div class="subsection">
+					<h5>Introduction</h5>
+					<p>
+						The dataset used in this project is about the landing statistics of San Francisco International Airport (SFO), published by the SF Airport Commission through DataSF. It has 18.7K rows and 14 columns, with each row being of a landing record of a specific model of aircraft during a specific activity period between July 2005 and December 2016. The reason for me to choose this dataset is because I am always fascinated with airplanes when I was little. I decided that, by looking closely at the data released by SFO, I get to know more about the air traffic situation around the San Francisco Bay Area. Thus, the visualizations derived from this dataset should satisfy my curiosity. Specifically, I would like to know the aircraft that are commonly found in SFO, as well as the time period in which the most air traffic takes place.
+					</p>
+					<p>
+						The dataset has the following columns:
+					</p>
+					<ul>
+						<li><samp>Activity Period</samp> contains the data period of the flight landed.</li>
+						<li><samp>Operating Airline</samp> and <samp>Operating Airline IATA Code</samp> contain the airline that operates the flight landed and its IATA code.</li>
+						<li><samp>Published Airline</samp> and <samp>Published Airline IATA Code</samp> contain the airline being published of the flight landed and its IATA code.</li>
+						<li><samp>GEO Summary</samp> indicates whether the flight landed is international or domestic.</li>
+						<li><samp>GEO Region</samp> indicates which region the landed flight is originated from.</li>
+						<li><samp>Landing Aircraft Type</samp> indicates whether the flight landed is a passenger, freighter or combi aircraft.</li>
+						<li><samp>Aircraft Body Type</samp> contains the body type info of the aircraft landed.</li>
+						<li><samp>Aircraft Manufacturer</samp>, <samp>Aircraft Model</samp> and <samp>Aircraft Version</samp> contain the info of the aircraft landed.</li>
+						<li><samp>Landing Count</samp> contains the number of times the same type of aircraft has landed.</li>
+						<li><samp>Total Landed Weight</samp> contains the sum of weight of the same type of aircraft landed.</li>
+					</ul>
+					<p>
+						For this project, only <samp>Activity Period</samp>, <samp>Published Airline</samp>, <samp>GEO Summary</samp>, <samp>Aircraft Manufacturer</samp>, <samp>Aircraft Model</samp> and <samp>Landing Count</samp> columns are used.
+					</p>
+					<p>
+						The original dataset can be accessed at <a href="https://data.sfgov.org/Transportation/Air-Traffic-Landings-Statistics/fpux-q53t" target="_blank">https://data.sfgov.org/Transportation/Air-Traffic-Landings-Statistics/fpux-q53t</a>. It is available under the Public Domain Dedication and License.
+					</p>
+				</div>
+				<div class="subsection">
+					<h5>Motivation</h5>
+					<p>
+						The reason for me to choose this dataset is because I am always fascinated with airplanes when I was little. I decided that, by looking closely at the data released by SFO, I get to know more about the air traffic situation around the San Francisco Bay Area. Thus, the visualizations derived from this dataset should satisfy my curiosity. Specifically, I would like to know the aircraft that are commonly found in SFO, as well as the time period in which the most air traffic takes place.
+					</p>
+				</div>
+				<div class="subsection">
+					<h5>Data Processing</h5>
+					<p>
+						A number of steps were taken to clean up the data from the original dataset.
+					</p>
+					<p>
+						Trifacta Wrangler was used namely to transform the <samp>Activity Period</samp> column from a <code>YYYYMM</code> string format to a <code>YYYY-MM-DD</code> date format, as well as to append <code>B</code> to the model number of all Boeing aircraft for consistency. Meanwhile, all Belair-operated flights were incorrectly marked with an IATA code of <code>BBB</code>, which were corrected with the code <code>4T</code>. Quotation marks in airline names are also removed in the process. A full recipe of the operation is available <a href="resources/trifacta.wrangle">here</a>.
+					</p>
+					<p>
+						Further data processing was performed due to a change in the format of the <samp>Aircraft Model</samp> that took place after the June 2013 activity period, in which the <a href="https://en.wikipedia.org/wiki/List_of_ICAO_aircraft_type_designators" target="_blank">ICAO aircraft type designators</a> (which typically concatenate the aircraft model and version) were used to document the aircraft model number of each landing, as oppose to landings before June 2013 that have a separate model and version number. For example, a landing that involves a Boeing 737-800 prior to June 2013 was recorded as <code>B737</code> in the <samp>Aircraft Model</samp> column and <code>800</code> in the <samp>Aircraft Version</samp> column, whereas landings after that were recorded as <code>B738</code> in the <samp>Aircraft Model</samp> column and <code>-</code> in the <samp>Aircraft Version</samp> column. As a result, it is not possible to compare landings before and after the June 2013 activity period. Therefore, a manual cleanup was performed on landings took place after the June 2013 activity period, which involves a lookup of the ICAO aircraft type designator of each landing from <a href="http://cfapp.icao.int/Doc8643/reports/Part2-By%20Type%20Designator(Decode).pdf" target="_blank">this table published by ICAO</a> and a modification to the associated <samp>Aircraft Model</samp> and <samp>Aircraft Version</samp> columns.
+					</p>
+					<p>
+						Finally, all United Airlines flights that have <code>United Airlines - Pre 07/01/2013</code> in the <samp>Operating Airline</samp> and <samp>Published Airline</samp> columns are merged with the rest of the United Airlines flights for easy comparison.
+					</p>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<ul>
+				<li class="text-muted pull-right">Project by <a href="https://github.com/chunheisiu" target="_blank">Charles Siu</a>.</li>
+			</ul>
+		</footer>
+	</div>
+</body>
+</html>

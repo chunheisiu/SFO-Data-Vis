@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CS 360 Final Project - SFO Air Traffic Landings Statistics</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="https://unpkg.com/topojson-client@3"></script>
+</head>
+<body>
+	<div class="container">
+		<nav>
+			<h2>CS 360 Final Project - SFO Air Traffic Landings Statistics ✈️</h2>
+			<p class="text-muted">@chunheisiu</p>
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Home</a></li>
+				<li><a href="prototype.html"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>&nbsp;&nbsp;Prototypes</a></li>
+				<li><a href="about.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;About</a></li>
+			</ul>
+		</nav>
+		<div id="blurb">
+			<div class="section">
+				<h3>① Monthly Landing Count by Aircraft Manufacturers</h3>
+				<div class="subsection">
+					<svg id="vis1" width="960" height="600"></svg>
+					<script src="js/vis1.js"></script>
+					<p>
+						This multi-series line graph shows the number of monthly landing count by aircraft manufacturers with an average landing count of 300 or more. As a result, small aircraft manufacturers are omitted. <strong>Hover over the graph to see the landing count of each manufacturer during the specific activity period.</strong>
+					</p>
+					<p>
+						There are some notable findings that are prominent in this visualization:
+					</p>
+					<ul>
+						<li><span style="color: #ff7f0e">Boeing</span> was the most popular aircraft manufacturer among the airlines that operate at SFO.</li>
+						<li><span style="color: #1f77b4">Airbus</span> was trailing behind <span style="color: #ff7f0e">Boeing</span> as the second most popular aircraft manufacturer among the airlines that operate at SFO.</li>
+						<li><span style="color: #9467bd">Embraer</span> and <span style="color: #2ca02c">Bombardier</span>, both regional airliner manufacturers, were in a cat-and-mouse chase, with <span style="color: #2ca02c">Bombardier</span> in the lead for most of the duration.</li>
+						<li><span style="color: #8c564b">McDonnell Douglas</span>, which merged with <span style="color: #ff7f0e">Boeing</span> in 1997, was in the process of being phased out by airlines that operate at SFO.</li>
+						<li>Traffic for <span style="color: #ff7f0e">Boeing</span> and <span style="color: #1f77b4">Airbus</span> peaked during the summer, in July, and dropped during the winter, in January, every year at SFO, while other manufacturers were largely unaffected by this cycle.</li>
+					</ul>
+					<br>
+					<p>Used modified code from <a href="https://bl.ocks.org/mbostock/3884955" target="_blank">https://bl.ocks.org/mbostock/3884955</a> and <a href="https://bl.ocks.org/larsenmtl/e3b8b7c2ca4787f77d78f58d41c3da91" target="_blank">https://bl.ocks.org/larsenmtl/e3b8b7c2ca4787f77d78f58d41c3da91</a>.</p>
+				</div>
+			</div>
+			<div class="section">
+				<h3>② Percentage of Boeing Aircraft Models for Domestic and International Flights</h3>
+				<div class="subsection">
+					<svg id="vis2" width="960" height="500"></svg>
+					<script src="js/vis2.js"></script>
+					<p>
+						This comparison chart shows the percentage of Boeing aircraft models for <span style="color: #17becf">domestic</span> and <span style="color: #e377c2">international</span> flights. Each plane represents one Boeing aircraft model. While it is true that the size and shape of the each model are different to one another, one generic shape was chosen for easy comparison. <strong>Hover over the planes to see the actual landing count for domestic and international flight of that model and their respective percentages.</strong>
+					</p>
+					<p>
+						There are some notable findings that are prominent in this visualization:
+					</p>
+					<ul>
+						<li>B717 was exclusively used for <span style="color: #17becf">domestic</span> flights, presumably due to its small capacity and short range.</li>
+						<li>B747 was almost exclusively used for <span style="color: #e377c2">international</span> flights, presumably due to its large capacity and long range.</li>
+						<li>B717, B727, B737, B757, and B767 were more commonly used for <span style="color: #17becf">domestic</span> flights.</li>
+						<li>B747, B777 and B787 were more commonly used for <span style="color: #e377c2">international</span> flights, presumably due to their large capacity and long range.</li>
+					</ul>
+					<br>
+					<p>Used modified code from <a href="http://bl.ocks.org/pnavarrc/20950640812489f13246" target="_blank">http://bl.ocks.org/pnavarrc/20950640812489f13246</a>.</p>
+				</div>
+			</div>
+			<div class="section">
+				<h3>③ Percentage of Airbus Aircraft Models for Domestic and International Flights</h3>
+				<div class="subsection">
+					<svg id="vis3" width="960" height="500"></svg>
+					<script src="js/vis3.js"></script>
+					<p>
+						This comparison chart shows the percentage of Airbus aircraft models for <span style="color: #17becf">domestic</span> and <span style="color: #e377c2">international</span> flights. Each plane represents one Airbus aircraft model. While it is true that the size and shape of the each model are different to one another, one generic shape was chosen for easy comparison. <strong>Hover over the planes to see the actual landing count for domestic and international flight of that model and their respective percentages.</strong>
+					</p>
+					<p>
+						There are some notable findings that are prominent in this visualization:
+					</p>
+					<ul>
+						<li>A300 and A310 were exclusively used for <span style="color: #17becf">domestic</span> flights, presumably due to their small capacity and short range.</li>
+						<li>A321 was almost exclusively used for <span style="color: #17becf">domestic</span> flights.</li>
+						<li>A318, A319, and A320 were more commonly used for <span style="color: #17becf">domestic</span> flights.</li>
+						<li>A330 was more commonly used for <span style="color: #e377c2">international</span> flights.</li>
+						<li>A340, A350, and A380 were exclusively used for <span style="color: #e377c2">international</span> flights, presumably due to their large capacity and long range.</li>
+					</ul>
+					<br>
+					<p>Used modified code from <a href="http://bl.ocks.org/pnavarrc/20950640812489f13246" target="_blank">http://bl.ocks.org/pnavarrc/20950640812489f13246</a>.</p>
+				</div>
+			</div>
+			<div class="section">
+				<h3>④ Total Landing Count of Airlines per Aircraft Manufacturer</h3>
+				<div class="subsection">
+					<svg id="vis4" width="960" height="600"></svg>
+					<script src="js/vis4.js"></script>
+					<p>
+						This stacked bar chart shows the landing count of airlines per aircraft manufacturer. Only airlines with more than 35,000 landing counts are included since they are relatively more important. <strong>Hover over the legend to see the actual landing count of that aircraft manufacturer in each airline.</strong>
+					</p>
+					<p>
+						There are some notable findings that are prominent in this visualization:
+					</p>
+					<ul>
+						<li>United Airlines had the largest number of landing counts, which meant that it had the largest market share at SFO. (Note: SFO is one of the hubs for United Airlines)</li>
+						<li>Virgin America and JetBlue Airways used <span style="color: #1f77b4">Airbus</span> aircraft exclusively for flights to SFO. (Note: Both airlines have an all <span style="color: #1f77b4">Airbus</span> fleet)</li>
+						<li>Southwest Airlines used <span style="color: #ff7f0e">Boeing</span> aircraft exclusively for flights to SFO. (Note: Southwest Airlines has an all <span style="color: #ff7f0e">Boeing</span> fleet)</li>
+						<li>U.S. Airways (Now merged with American Airlines) and Air Canada used <span style="color: #1f77b4">Airbus</span> aircraft for the majority of their flights to SFO.</li>
+						<li>American Airlines, Delta Air Lines, and Alaska Airlines used <span style="color: #ff7f0e">Boeing</span> aircraft for the majority of their flights to SFO.</li>
+						<li>American Airlines was the largest user of <span style="color: #8c564b">McDonnell Douglas</span> aircraft for flights to SFO.</li>
+						<li>Alaska Airlines was the largest and the only user of <span style="color: #d62728">DeHavilland</span> aircraft for flights to SFO.</li>
+					</ul>
+					<br>
+					<p>Used modified code from <a href="https://bl.ocks.org/mbostock/3886208" target="_blank">https://bl.ocks.org/mbostock/3886208</a>.</p>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<ul>
+				<li class="text-muted pull-right">Project by <a href="https://github.com/chunheisiu" target="_blank">Charles Siu</a>.</li>
+			</ul>
+		</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+splitrows col: column1 on: '\n'
+split col: column1 on: ',' limit: 13 quote: '\"'
+header
+derive value: left(Activity_Period, 4) order:  as: 'Activity_Period_Year'
+derive value: right(Activity_Period, 2) as: 'Activity_Period_Month'
+settype col: Activity_Period_Month type: 'Integer'
+settype col: Activity_Period_Year type: 'Integer'
+drop col: Activity_Period
+derive value: dateformat(date(Activity_Period_Year, Activity_Period_Month, 1), 'yyyy-MM-dd') as: 'Activity_Period'
+drop col: Activity_Period_Month
+drop col: Activity_Period_Year
+replace col: Operating_Airline_IATA_Code with: '4T' on: 'BBB'
+replace col: Published_Airline_IATA_Code with: '4T' on: 'BBB'
+settype col: Aircraft_Version type: 'String'
+settype col: Aircraft_Model type: 'String'
+replace col: Aircraft_Model with: 'B7' on: /^7/
+replace col: Operating_Airline with: '' on: /"/ global: true
+replace col: Published_Airline with: '' on: /"/ global: true
