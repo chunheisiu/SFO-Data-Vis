@@ -1,9 +1,6 @@
 ## USF CS 360: Data Visualization
 Final Project: SFO Air Traffic Landings Statistics
 
-###### Team Members:
-* Charles Siu ([@chunheisiu](https://github.com/chunheisiu))
-
 ### Introduction
 
 The project visualizes various landing statistics of San Francisco International Airport (SFO), using the dataset published by the SF Airport Commission through DataSF. It utilizes JavaScript for scripting and D3.js for Visualization. It is part of the coursework for the *CS 360 Data Visualization* class at the University of San Francisco.
